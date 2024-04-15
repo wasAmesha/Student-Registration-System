@@ -1,0 +1,40 @@
+﻿<Window x:Class="StudentRegistrationSystem.Views.CreateUserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentRegistrationSystem.ViewModels"
+        mc:Ignorable="d"
+        Title="CreateUserWindow" Height="600" Width="600" ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <local:CreateUserWindowVM/>
+    </Window.DataContext>
+    
+    <Grid>
+        <StackPanel>
+            <Label Content="Enter the Details"  FontFamily="Times new roman" FontWeight="Bold" FontSize="30" Foreground="Black"
+                   HorizontalAlignment="Center" Margin="0 40 0 0"/>
+        </StackPanel>
+        <StackPanel Width="200" HorizontalAlignment="Left" Orientation="Vertical" Margin="120,40,0,10" Height="250">
+            <TextBlock Text="UserName" Background="LightSteelBlue" Height="30" FontSize="20" FontFamily="Times New Roman" />
+            <TextBlock Text="Password" Margin="0 20 0 0" Background="LightSteelBlue" Height="30" FontSize="20" FontFamily="Times New Roman" />
+            <TextBlock Text="Confirm Password" Margin="0 20 0 0" Background="LightSteelBlue" Height="30" FontSize="20" FontFamily="Times New Roman"/>
+        </StackPanel>
+
+        <StackPanel  HorizontalAlignment="Left"  Width="150" Margin="350,100,0,120" Orientation="Vertical" Height="200">
+            <TextBox  BorderThickness="1" Height="30" Text="{Binding UserName,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox  BorderThickness="1" Height="30" Margin="0 20 0 0" Text="{Binding Password,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox  BorderThickness="1" Height="30" Margin="0 20 0 0" Text="{Binding ConfirmPassword,UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+
+        <StackPanel  Margin="200,350,0,93" Orientation="Horizontal" HorizontalAlignment="Left" Width="200" Height="100">
+            <Button  Margin="10" Height="40" Content="Create" Width="180" Command="{Binding CreateCommand}"/>
+        </StackPanel>
+
+        
+        <StackPanel  VerticalAlignment="Bottom" Height="20" Background="Black"></StackPanel>
+
+    </Grid>
+</Window>

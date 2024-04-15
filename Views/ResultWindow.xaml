@@ -1,0 +1,108 @@
+﻿<Window x:Class="StudentRegistrationSystem.Views.ResultWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentRegistrationSystem.ViewModels"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="ResultWindow" Height="600" Width="1550" Background="WhiteSmoke"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <local:ResultWindowVM/>
+    </Window.DataContext>
+
+    <Grid>
+
+        <StackPanel HorizontalAlignment="Left" Width="390" Margin="0,10,0,47" Orientation="Vertical">
+            <TextBox Text="StudentId" Style="{StaticResource NameBoxs}"/>
+            <TextBox Text="EE3301-Analog Electronics" Style="{StaticResource NameBoxs}"/>
+            <TextBox Text="EE3302-Data Structures and Algorithms" Style="{StaticResource NameBoxs}"/>
+            <TextBox Text="EE3203-Electrical and Electronic Measurements" Style="{StaticResource NameBoxs}"/>
+            <TextBox Text="EE3305-Signals and Systems" Style="{StaticResource NameBoxs}"/>
+            <TextBox Text="EE3250-GUI Programming" Style="{StaticResource NameBoxs}"/>
+            <TextBox Text="EE3151-Programming Project" Style="{StaticResource NameBoxs}"/>
+            <TextBox Text="IS3301-Basic Economics" Style="{StaticResource NameBoxs}"/>
+            <TextBox Text="IS3302-Complex Analysis and Mathematicsal Transforms" Style="{StaticResource NameBoxs}"/>
+            <TextBox Text="IS3307-Society and the Engineer" Style="{StaticResource NameBoxs}"/>
+        </StackPanel>
+
+        <StackPanel HorizontalAlignment="Left" Margin="340,10,0,46" Width="147">
+            <TextBox Width="50" Margin="10 12" BorderThickness="1" Text="{Binding StudentId,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Width="50" Margin="10 12" BorderThickness="1" Text="{Binding EE3301,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Width="50" Margin="10 " BorderThickness="1" Text="{Binding EE3302,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Width="50" Margin="10 12" BorderThickness="1" Text="{Binding EE3203,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Width="50" Margin="10 " BorderThickness="1" Text="{Binding EE3305,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Width="50" Margin="10 12" BorderThickness="1" Text="{Binding EE3250,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Width="50" Margin="10 12" BorderThickness="1" Text="{Binding EE3151,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Width="50" Margin="10 " BorderThickness="1" Text="{Binding IS3301,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Width="50" Margin="10 12" BorderThickness="1" Text="{Binding IS3302,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Width="50" Margin="10 12" BorderThickness="1" Text="{Binding IS3307,UpdateSourceTrigger=PropertyChanged}"/>
+
+
+        </StackPanel>
+
+        <StackPanel VerticalAlignment="Bottom" Height="55" Orientation="Horizontal" >
+
+            <Button x:Name="Create"  Width="100" Margin="10" Command="{Binding CreateCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Create" Width=" 15" Height="20" Foreground="White" HorizontalAlignment="Center" />
+                    <Label Content="Create" Style="{StaticResource CRUD_Lables}"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="Read"  Width="100" Margin="10" Command="{Binding ReadCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Read" Width=" 15" Height="20" Foreground="White" HorizontalAlignment="Center" />
+                    <Label Content="Read" Style="{StaticResource CRUD_Lables}"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="Clear"  Width="100" Margin="10" Command="{Binding ClearCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Clear" Width=" 15" Height="20" Foreground="White" HorizontalAlignment="Center" />
+                    <Label Content=" Clear" Style="{StaticResource CRUD_Lables}"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="Update"  Width="100" Margin="10" Command="{Binding UpdateCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Update" Width=" 15" Height="20" Foreground="White" HorizontalAlignment="Center" />
+                    <Label Content="Update" Style="{StaticResource CRUD_Lables}"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="Delete"  Width="100" Margin="10" Command="{Binding DeleteCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Delete" Width=" 15" Height="20" Foreground="White" HorizontalAlignment="Center" />
+                    <Label Content="Delete" Style="{StaticResource CRUD_Lables}"/>
+                </StackPanel>
+            </Button>
+
+        </StackPanel>
+
+       
+
+            <ListView Name="ResultList" Margin="450 10  0 50" FontSize="15" FontFamily="Times New Roman" ItemsSource="{Binding Results,UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding SelectedStudent,UpdateSourceTrigger=PropertyChanged}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="StudentId" Width="150" DisplayMemberBinding="{Binding StudentId}"/>
+                        <GridViewColumn Header="EE3301" Width="120" DisplayMemberBinding="{Binding EE3301}"/>
+                        <GridViewColumn Header="EE3302" Width="120" DisplayMemberBinding="{Binding EE3302}"/>
+                        <GridViewColumn Header="EE3203" Width="120" DisplayMemberBinding="{Binding EE3203}"/>
+                        <GridViewColumn Header="EE3305" Width="120" DisplayMemberBinding="{Binding EE3305}"/>
+                        <GridViewColumn Header="EE3250" Width="120" DisplayMemberBinding="{Binding EE3250}"/>
+                        <GridViewColumn Header="EE3151" Width="120" DisplayMemberBinding="{Binding EE3151}"/>
+                        <GridViewColumn Header="IS3301" Width="120" DisplayMemberBinding="{Binding IS3301}"/>
+                        <GridViewColumn Header="IS3302" Width="120" DisplayMemberBinding="{Binding IS3302}"/>
+                        <GridViewColumn Header="IS3307" Width="120" DisplayMemberBinding="{Binding IS3307}"/>
+
+                    </GridView>
+
+
+                </ListView.View>
+
+            </ListView>
+       
+    </Grid>
+
+
+</Window>

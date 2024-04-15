@@ -1,0 +1,28 @@
+﻿<Window x:Class="StudentRegistrationSystem.Views.AdminHomeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentRegistrationSystem.ViewModels"
+        mc:Ignorable="d"
+        Title="AdminHomeWindow" Height="600" Width="600" Background="LightSlateGray" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <local:AdminHomeWindowVM/>
+    </Window.DataContext>
+
+    <Grid>
+        
+     
+        
+        <Border Background="LightGray" Width="600" Height="600"  Margin="0" CornerRadius="0 600 0 600"/>
+        <StackPanel Margin="180">
+            <Button Content="Create User" Style="{StaticResource button1}" Command="{Binding CreateUserCommand}"/>
+            <Button Content="Add Results" Style="{StaticResource button1}" Command="{Binding AddResultCommand}"/>
+            <Button Content="View Results" Style="{StaticResource button1}" Command="{Binding ViewResultCommand}"/>
+        </StackPanel>
+        
+
+    </Grid>
+</Window>
